@@ -14,6 +14,13 @@ return [
     'inital_items_query' => [
         'where' => ['published','=',1],
         'order_by' => ['publish_at','desc'],
-    ]
+    ],
+    //column(s) from items table from which we take text
+    'text_columns' => [
+        'text'
+    ],
+    //if text_column has html structure, should it be removed
+    'remove_tags' => true,
+    
     
 ];

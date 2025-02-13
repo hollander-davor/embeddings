@@ -65,15 +65,24 @@ class ImportItems extends Command
     public function dataNormalization($data) {
         $finalData = [];
 
-        $finalData['item_id'] = $data->id;
-        
+        $columns = config('embeddings.text_columns');
+        $text = '';
+        foreach($columns as $column){
+            $value = $data->$column;
+            if(config('embeddings.remove_tags')){
+                $value = strip_tags($value);
+            }
+            $text .= $value;
+        }
+        dd($text);
+        //get embedding from openai
         $client = \OpenAIAPI::client('embeddings',30,config('embeddings.embedding_model'));
         $vector = $client->embedding('petar petrovic njegos');
-        dd($vector);
+
+        $finalData['item_id'] = $data->id;
+        $finalData['vector'] = $vector;
         
         return $finalData;
-
-
     }
 
     /**
