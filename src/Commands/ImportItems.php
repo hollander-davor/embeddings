@@ -67,7 +67,7 @@ class ImportItems extends Command
 
         $finalData['item_id'] = $data->id;
         
-        $client = \OpenAI::client('embeddings',30,config('embeddings.embedding_model'));
+        $client = \OpenAIAPI::client('embeddings',30,config('embeddings.embedding_model'));
         $vector = $client->embedding('petar petrovic njegos');
         dd($vector);
         
