@@ -214,7 +214,7 @@ class OpenAI{
     /**
      * get embedding from provided text
      */
-    public function embedding($text,$encodingFormat = 'float'){
+    public function embedding(string $text, string $encodingFormat = 'float'){
         $body = [
             'model' => $this->getModel(),
             'input' => $text,

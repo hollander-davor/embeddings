@@ -65,7 +65,7 @@ class ImportItems extends Command
     public function dataNormalization($data) {
         $finalData = [];
 
-        $finalData ['item_id'];
+        $finalData['item_id'] = $data->id;
         
         $client = \OpenAI::client('embeddings',30,config('embeddings.embedding_model'));
         $vector = $client->embedding('petar petrovic njegos');
@@ -81,7 +81,7 @@ class ImportItems extends Command
      */
     public static function getImportItems(){
         $tableName = config('embeddings.items_table_name');
-        if(isset($queryArray) && !empty($queryArray)){
+        if(isset($tableName) && !empty($tableName)){
             $importItems = \DB::table($tableName);
         }else{
            //if table name is empty, give info to user
