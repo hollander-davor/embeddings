@@ -28,7 +28,7 @@
                 "Hoks\\Embeddings\\EmbeddingsServiceProvider"
             ],
             "aliases":{
-                "OpenAI" : "Hoks\\Embeddings\\Facades\\OpenAIAPI"
+                "OpenAIAPI" : "Hoks\\Embeddings\\Facades\\OpenAIAPI"
             }
         }
     }
