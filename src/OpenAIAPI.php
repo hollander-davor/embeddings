@@ -4,7 +4,7 @@ namespace Hoks\Embeddings;
 
 use GuzzleHttp\Client;
 
-class OpenAI{
+class OpenAIAPI{
 
     //request headers
     protected $headers = [];

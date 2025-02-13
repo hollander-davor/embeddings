@@ -4,11 +4,11 @@ namespace Hoks\Embeddings\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class OpenAI extends Facade{
+class OpenAIAPI extends Facade{
 
     protected static function getFacadeAccessor()
     {
-        return 'OpenAI';
+        return 'OpenAIAPI';
     }
 
 }

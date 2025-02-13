@@ -3,7 +3,7 @@
 namespace Hoks\Embeddings;
 
 use Illuminate\Support\ServiceProvider;
-use Hoks\Embeddings\OpenAI;
+use Hoks\Embeddings\OpenAIAPI;
 use Hoks\Embeddings\Commands\ImportItems;
 
 
@@ -22,8 +22,8 @@ class EmbeddingsServiceProvider extends ServiceProvider{
     }
 
     public function register(){
-        $this->app->bind('OpenAI',function(){
-            return new OpenAI();
+        $this->app->bind('OpenAIAPI',function(){
+            return new OpenAIAPI();
         });
         $this->mergeConfigFrom(__DIR__.'/config/embeddings.php', 'embeddings');
     }
