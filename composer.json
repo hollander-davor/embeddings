@@ -1,0 +1,35 @@
+{
+    "name": "davor/embeddings",
+    "description": "This package provides vector embeddings for inout text, and additional functionalities",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Davor\\Embedings\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "davor.holender",
+            "email": "davor.holender@cubes.rs"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.2|^8.0",
+        "guzzlehttp/guzzle": "^6.3|^7.0.0",
+        "intervention/image": "^2.5",
+        "mongodb/laravel-mongodb": "^3.7|^3.9",
+        "predis/predis": "^2.2"
+    },
+    "extra" : {
+        "laravel" : {
+            "providers" :[
+                "Hoks\\Embeddings\\EmbeddingsServiceProvider"
+            ],
+            "aliases":{
+                "OpenAI" : "Hoks\\Embeddings\\Facades\\OpenAI"
+            }
+        }
+    }
+}
