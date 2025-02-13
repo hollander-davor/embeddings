@@ -7,7 +7,7 @@ use Hoks\Embeddings\OpenAI;
 use Hoks\Embeddings\Commands\ImportItems;
 
 
-class NewsRecommendationServiceProvider extends ServiceProvider{
+class EmbeddingsServiceProvider extends ServiceProvider{
 
     public function boot(){
         $this->publishes([
