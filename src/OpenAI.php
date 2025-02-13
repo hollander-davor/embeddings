@@ -226,6 +226,7 @@ class OpenAI{
         $this->setResponse($response);
 
         $finalData = $this->getEmbedding();
+        
         return $finalData;
     }
 
