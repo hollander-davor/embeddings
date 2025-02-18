@@ -21,6 +21,7 @@ return [
     ],
     //if text_column has html structure, should it be removed
     'remove_tags' => true,
-    
+    //should \r\n be removed
+    'remove_r_n' => true
     
 ];

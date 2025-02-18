@@ -234,7 +234,7 @@ class OpenAIAPI{
      * extract embedding array from response
      */
     public function getEmbedding(){
-        return (array) json_decode($this->getResponse()->getBody()->getContents());
+        return (array) json_decode($this->getResponse()->getBody()->getContents())->data[0]->embedding;
     }
 
 }

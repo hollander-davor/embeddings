@@ -69,16 +69,30 @@ class ImportItems extends Command
         $text = '';
         foreach($columns as $column){
             $value = $data->$column;
-            if(config('embeddings.remove_tags')){
-                $value = strip_tags($value);
+            if(!empty($value)){
+                if(config('embeddings.remove_tags')){
+                    //if we need to remove tags from text (if text is in html)
+                    $value = strip_tags($value);
+                }
+                //add dot at the end if needed
+                if(str_ends_with($value,'.')){
+                    $concatValue = '';
+                }else{
+                    $concatValue = '. ';
+                }
+                $text .= $value.$concatValue;
             }
-            $text .= $value;
         }
-        dd($text);
+        // remove \r\n
+        if(config('embeddings.remove_r_n')){
+            $text = str_replace(array("\r", "\n"), '', $text); //removes \r\n
+        }
+        $text = html_entity_decode($text, ENT_QUOTES, 'UTF-8');//utf-8 decoding
+
         //get embedding from openai
         $client = \OpenAIAPI::client('embeddings',30,config('embeddings.embedding_model'));
         $vector = $client->embedding('petar petrovic njegos');
-
+        
         $finalData['item_id'] = $data->id;
         $finalData['vector'] = $vector;
         
