@@ -5,7 +5,8 @@ namespace Hoks\Embeddings;
 use Illuminate\Support\ServiceProvider;
 use Hoks\Embeddings\OpenAIAPI;
 use Hoks\Embeddings\Commands\ImportItems;
-
+use Hoks\Embeddings\Commands\SearchItems;
+use Hoks\Embeddings\Commands\CreatePythonScript;
 
 class EmbeddingsServiceProvider extends ServiceProvider{
 
@@ -16,6 +17,8 @@ class EmbeddingsServiceProvider extends ServiceProvider{
         if ($this->app->runningInConsole()) {
             $this->commands([
                 ImportItems::class,
+                SearchItems::class,
+                CreatePythonScript::class
             ]);
         }
       
