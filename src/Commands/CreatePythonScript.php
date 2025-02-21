@@ -32,8 +32,8 @@ class CreatePythonScript extends Command
     {
         $packagePath = __DIR__.'/../scripts';
         $sourceFile = 'python_script.py';
-
-        $sourceFilePath = base_path($packagePath.'/'.$sourceFile);
+        
+        $sourceFilePath = $packagePath.'/'.$sourceFile;
 
         //get contents from package
         if(!file_exists($sourceFilePath)){
