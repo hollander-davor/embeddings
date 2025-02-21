@@ -30,7 +30,7 @@ class CreatePythonScript extends Command
      */
     public function handle()
     {
-        $packagePath = 'davor/embeddings/scripts';
+        $packagePath = __DIR__.'/../scripts';
         $sourceFile = 'python_script.py';
 
         $sourceFilePath = base_path($packagePath.'/'.$sourceFile);
